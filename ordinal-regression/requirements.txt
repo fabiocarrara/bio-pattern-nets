@@ -1,0 +1,11 @@
+seaborn
+matplotlib
+jinja2
+pandas
+scipy
+tqdm
+sklearn
+torch>=0.2
+numpy>=1.13
+argparse
+
