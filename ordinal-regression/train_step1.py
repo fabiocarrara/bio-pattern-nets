@@ -13,6 +13,7 @@ from torch.autograd import Variable as V
 from model import Net, SmallNet, SmallDeepNet
 from common import save_model, load_model, exp_lr_scheduler
 
+
 def train(model, optimizer, epoch, loader, logfile, args):
 
     model.train(True)  # Set model to training mode

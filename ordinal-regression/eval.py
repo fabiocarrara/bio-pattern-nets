@@ -46,6 +46,8 @@ def score(model, loader, out, args):
 
 
 def evaluate(model, data, args):
+    dataset_name = 'EDGES' if 'edges-dataset' in args.data else 'BLOBS'
+
     # SCORING -----------
     train_loader, val_loader, test_loader = data
 
@@ -96,7 +98,7 @@ def evaluate(model, data, args):
     </head>
     <body>
     <div class="container">
-        <h1>EDGES dataset: ordinal regression results</h1>
+        <h1>{{dataset}} dataset: ordinal regression results</h1>
         <figure class>
             <img style="width:100%" src="data:image/png;base64,{{plot}}">
         </figure>
@@ -126,6 +128,6 @@ def evaluate(model, data, args):
     results_fname = 'test_results.html'
     results_fname = os.path.join(args.workDir, results_fname)
     with open(results_fname, 'wb') as f:
-        f.write(html_template.render(results=results, plot=plot_data))
+        f.write(html_template.render(results=results, plot=plot_data, dataset=dataset_name))
 
     print "Results written:", results_fname
